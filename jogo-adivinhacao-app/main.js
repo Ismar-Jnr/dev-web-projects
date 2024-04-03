@@ -39,6 +39,7 @@ btnTry.addEventListener('click', handleTryClick) // Função handleTryClick foi 
 btnReset.addEventListener('click', function (){ // Função anonima, executada no proprio escopo
     document.querySelector(".screen1").classList.remove("hide"); 
     document.querySelector(".screen2").classList.add("hide");
+    location.reload();
     contador = 1;
 
 })
