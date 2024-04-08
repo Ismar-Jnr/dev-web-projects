@@ -8,10 +8,6 @@ const inputWeight = document.querySelector('#weight');
 const inputHeight = document.querySelector('#height');
 const saidaErro = document.querySelector('.input-wrapper');
 
-saidaErro.oninput = (event) => {
-    
-}
-
 
 form.onsubmit = (event) => {
     event.preventDefault(); // previne o recarregamento da pagina;
