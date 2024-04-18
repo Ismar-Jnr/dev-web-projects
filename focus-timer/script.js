@@ -13,31 +13,37 @@ const segundos = document.querySelector('.segundos');
 let minutosDefinidoPeloUser;
 let segundosDefinidoPeloUser;
 
+function resetarControles (){
+    play.classList.remove('hide');
+    pause.classList.add('hide');
+    configTempo.classList.remove('hide');
+    buttonStop.classList.add('hide');
+}
+
+function attTempoDisplay(minutosContagem, segundosContagem){
+    minutos.textContent = String(minutosContagem).padStart(2, "0");
+    segundos.textContent = String(segundosContagem).padStart(2, "0");
+}
+
 function diminuirContagem () {
     setTimeout(()=> {
         let segundosContagem = Number(segundos.textContent);
         let minutosContagem = Number(minutos.textContent);
-
         
-        if(segundosContagem <= 0){
-            segundosContagem =2;
-            
-            minutos.textContent = String(minutosContagem - 1).padStart(2, "0");
-        }
-        
-        segundos.textContent = String(segundosContagem - 1).padStart(2, "0");
+        attTempoDisplay(minutosContagem, 0);
         
         if(minutosContagem <= 0){
-
-            play.classList.remove('hide');
-            pause.classList.add('hide');
-            configTempo.classList.remove('hide');
-            buttonStop.classList.add('hide');
-
+            resetarControles();
             return
         }
         
-
+        if(segundosContagem <= 0){
+            segundosContagem =5;
+            --minutosContagem            
+        }      
+        
+        attTempoDisplay(minutosContagem, String(segundosContagem - 1))
+        
         diminuirContagem();
     }, 1000)
 };
@@ -59,10 +65,7 @@ pause.addEventListener('click', () =>{
 })
 
 buttonStop.addEventListener('click', () => {
-    play.classList.remove('hide');
-    pause.classList.add('hide');
-    configTempo.classList.remove('hide');
-    buttonStop.classList.add('hide');
+    resetarControles();
 })
 
 soundOn.addEventListener('click', () => {
@@ -77,9 +80,8 @@ soundOff.addEventListener('click', () => {
 
 configTempo.addEventListener('click', () => {
     minutosDefinidoPeloUser = prompt('Quantos minutos?');
-    minutos.textContent = minutosDefinidoPeloUser;
-    segundosDefinidoPeloUser = prompt('Quantos segundos?');
-    segundos.textContent = segundosDefinidoPeloUser;
+    //minutos.textContent = minutosDefinidoPeloUser;
+   attTempoDisplay(minutosDefinidoPeloUser, 0)
     
 })
 
