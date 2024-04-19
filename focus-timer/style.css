@@ -18,6 +18,7 @@ body{
     color: var(--txt-color);
 
     font-family: 'Roboto', sans-serif;
+    font-weight: 900;
 
     display: grid;
     min-height: 100vh;
