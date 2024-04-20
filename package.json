@@ -1,0 +1,15 @@
+{
+  "name": "dev-web-projects",
+  "version": "1.0.0",
+  "description": "Aplicações de desenvolvimento web(HTML, CSS, JavaScript)",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
